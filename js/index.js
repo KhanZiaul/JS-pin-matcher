@@ -50,10 +50,39 @@ document.getElementById('calculator-parent').addEventListener('click',function(e
     }
 
     else{
-
             const currentValue = event.target.innerText;
 
             document.getElementById('calculator-value').value = previousValue + currentValue;
-        }
+    }
 
-})
+});
+
+let i = 3;
+
+document.getElementById('submit-button').addEventListener('click',function(){
+
+    const pin = document.getElementById('random-input-field').value ;
+
+    const calculatorValueInString = document.getElementById('calculator-value').value;
+    
+    if(pin == calculatorValueInString){
+
+        document.getElementById('matching').classList.remove('d-none');
+        document.getElementById('not-match').classList.add('d-none');
+        document.getElementById('submit-button').classList.add('d-none');
+        document.getElementById('tryParent').classList.add('d-none');
+    }
+
+    else {
+
+        document.getElementById('not-match').classList.remove('d-none');
+        document.getElementById('matching').classList.add('d-none');
+        i--;
+        if(i === 0){
+            
+            document.getElementById('submit-button').classList.add('d-none');
+        }
+        document.getElementById('try').innerText = i;
+
+    }
+});
