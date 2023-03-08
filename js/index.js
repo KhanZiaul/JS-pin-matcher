@@ -24,3 +24,14 @@ document.getElementById('btn-generate').addEventListener('click',function(){
     document.getElementById('random-input-field').value = getPin();
 });
 
+
+document.getElementById('calculator-parent').addEventListener('click',function(event){
+
+    const previousValue = document.getElementById('calculator-value').value;
+
+    const currentValue = event.target.innerText;
+
+    document.getElementById('calculator-value').value = previousValue + currentValue;
+    
+    console.log(previousValue);
+})
