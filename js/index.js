@@ -10,15 +10,17 @@ function getPin(){
     const pinInString = pinIs + '';
 
     if(pinInString.length === 4){
+
         return pinInString;
     }
-
     else{
 
-        generatePin();
+       return generatePin();
     }
 }
 
-const pinis = getPin();
+document.getElementById('btn-generate').addEventListener('click',function(){
 
-console.log(pinis);
+    document.getElementById('random-input-field').value = getPin();
+});
+
