@@ -29,9 +29,31 @@ document.getElementById('calculator-parent').addEventListener('click',function(e
 
     const previousValue = document.getElementById('calculator-value').value;
 
-    const currentValue = event.target.innerText;
+    if(isNaN(event.target.innerText)){
 
-    document.getElementById('calculator-value').value = previousValue + currentValue;
-    
-    console.log(previousValue);
+        if(event.target.innerText === 'C'){
+        
+            document.getElementById('calculator-value').value = '';
+
+            }
+        else if(event.target.innerText === '<'){
+        
+            const calculatorValueInsplit = previousValue.split('');
+
+            calculatorValueInsplit.pop();
+
+            const remaingValue = calculatorValueInsplit.join('');
+        
+            document.getElementById('calculator-value').value = remaingValue;
+            
+            }
+    }
+
+    else{
+
+            const currentValue = event.target.innerText;
+
+            document.getElementById('calculator-value').value = previousValue + currentValue;
+        }
+
 })
